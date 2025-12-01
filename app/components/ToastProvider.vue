@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import UIToast from './UIToast.vue'
-const toasts: { id: string, title: string, message: string, type?: 'default' | 'success' | 'info' | 'warning' | 'error', variant: 'solid' | 'outline', icon: string, actionLeft: { label: string, callback: () => void }, actionRight: { label: string, callback: () => void } }[] = []
+// import UIToast from './UIToast.vue'
+// const toasts: { id: string, title: string, message: string, type?: 'default' | 'success' | 'info' | 'warning' | 'error', variant: 'solid' | 'outline', icon: string, actionLeft: { label: string, callback: () => void }, actionRight: { label: string, callback: () => void } }[] = []
 </script>
 
 <template>
