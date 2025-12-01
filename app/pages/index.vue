@@ -1,5 +1,9 @@
+<script setup lang="ts">
+</script>
 <template>
   <div>
-    <h1>Hello World</h1>
+    <MyTitle as="h1">Homepage</MyTitle>
+    <MyButton>Click me</MyButton>
+    <MyForm />
   </div>
 </template>
