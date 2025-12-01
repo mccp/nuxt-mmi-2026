@@ -1,7 +1,18 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ type?: 'default', variant?: 'solid' }>(), {
+type Action = { label: string, callback: () => void, priority: 'primary' | 'secondary' }
+
+withDefaults(defineProps<{
+  title: string,
+  message: string,
+  type?: 'default',
+  variant?: 'solid',
+  actionLeft?: Action | null,
+  actionRight?: Action | null
+}>(), {
   type: 'default',
-  variant: 'solid'
+  variant: 'solid',
+  actionLeft: null,
+  actionRight: null
 })
 </script>
 
