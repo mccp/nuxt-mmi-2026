@@ -7,9 +7,10 @@ withDefaults(
     indeterminate?: boolean
   }>(),
   {
+    label: '',
     position: 'right',
     disabled: false,
-    indeterminate: false,
+    indeterminate: false
   }
 )
 
@@ -22,11 +23,11 @@ const model = defineModel<boolean>({ default: false })
       {{ label }}
     </label>
     <input
-      type="checkbox"
       v-model="model"
+      type="checkbox"
       :disabled="disabled"
       :indeterminate="indeterminate"
-    />
+    >
     <label v-if="position === 'right'">
       {{ label }}
     </label>
