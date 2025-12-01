@@ -12,14 +12,15 @@ defineProps<{
     href=""
     class="button"
     :class="{ '-outline': variant === 'outline', '-small': size === 'small' }"
-    ><slot></slot
-  ></a>
+  >
+    <slot />
+  </a>
   <button
     v-else
     class="button"
     :class="{ '-outline': variant === 'outline', '-small': size === 'small' }"
   >
-    <slot></slot>
+    <slot/>
   </button>
 </template>
 

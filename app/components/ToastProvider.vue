@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { useToast } from '@/composables/useToast'
-import UIToast from './UIToast.vue'
 
-const { toasts } = useToast()
+import UIToast from './UIToast.vue'
+const toasts: { id: string, title: string, message: string, type: 'default' | 'success' | 'info' | 'warning' | 'error', variant: 'solid' | 'outline', icon: string, actionLeft: { label: string, callback: () => void }, actionRight: { label: string, callback: () => void } }[] = []
 </script>
 
 <template>
@@ -12,8 +11,8 @@ const { toasts } = useToast()
       <TransitionGroup name="toast">
         <UIToast
           v-for="toast in toasts"
-          :key="toast.id"
           :id="toast.id"
+          :key="toast.id"
           :title="toast.title"
           :message="toast.message"
           :type="toast.type"

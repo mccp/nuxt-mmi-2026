@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <component :is="as" class="title"><slot></slot></component>
+  <component :is="as" class="title"><slot/></component>
 </template>
 
 <style lang="scss">

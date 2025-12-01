@@ -16,7 +16,10 @@ const props = withDefaults(
     color: 'default',
     variant: 'full',
     size: 'medium',
-  },
+    type: 'text',
+    label: '',
+    helperText: ''
+  }
 )
 
 const model = defineModel({ type: String, default: '' })
@@ -25,7 +28,7 @@ const model = defineModel({ type: String, default: '' })
 <template>
   <div :class="['ui-input', `-${props.color}`, `-${props.size}`, `-${props.variant}`]">
     <label v-if="props.label">{{ props.label }}</label>
-    <input :placeholder="props.placeholder" :disabled="props.disabled" :type="props.type" v-model="model" />
+    <input v-model="model" :placeholder="props.placeholder" :disabled="props.disabled" :type="props.type" >
     <span v-if="props.helperText">{{ props.helperText }}</span>
   </div>
 </template>

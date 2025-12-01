@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import type { UIToastProps } from '@/types/components'
-
-withDefaults(defineProps<UIToastProps>(), {
+withDefaults(defineProps<{ type?: 'default', variant?: 'solid' }>(), {
   type: 'default',
-  variant: 'solid',
+  variant: 'solid'
 })
 </script>
 

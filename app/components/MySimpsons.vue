@@ -5,40 +5,40 @@ const simpsonsArray = reactive([
     nom: 'Simpson',
     description: 'lorem',
     img: 'bart.webp',
-    isAdult: false,
+    isAdult: false
   },
   {
     prenom: 'Bart',
     nom: 'Simpson',
     description: 'lorem',
     img: 'bart.webp',
-    isAdult: false,
+    isAdult: false
   },
   {
     prenom: 'Lisa',
     nom: 'Simpson',
     description: 'lorem',
     img: 'bart.webp',
-    isAdult: false,
+    isAdult: false
   },
   {
     prenom: 'Homer',
     nom: 'Simpson',
     description: 'lorem',
     img: 'bart.webp',
-    isAdult: true,
+    isAdult: true
   },
   {
     prenom: 'Marge',
     nom: 'Simpson',
     description: 'lorem',
     img: 'bart.webp',
-    isAdult: true,
-  },
+    isAdult: true
+  }
 ])
 
 const filteredSimpsons = computed(() =>
-  simpsonsArray.filter((simpson) => simpson.prenom.includes('a')),
+  simpsonsArray.filter((simpson) => simpson.prenom.includes('a'))
 )
 </script>
 <template>
@@ -53,9 +53,9 @@ const filteredSimpsons = computed(() =>
       :img="simpson.img"
     /> -->
     <li
-      class="simpsons__character"
       v-for="(simpson, index) in filteredSimpsons"
       :key="`simpson-${index}`"
+      class="simpsons__character"
     >
       <MyCharacter
         :prenom="simpson.prenom"
