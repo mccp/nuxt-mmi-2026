@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import UIToast from './UIToast.vue'
-const toasts: { id: string, title: string, message: string, type: 'default' | 'success' | 'info' | 'warning' | 'error', variant: 'solid' | 'outline', icon: string, actionLeft: { label: string, callback: () => void }, actionRight: { label: string, callback: () => void } }[] = []
+// import UIToast from './UIToast.vue'
+// const toasts: { id: string, title: string, message: string, type?: 'default' | 'success' | 'info' | 'warning' | 'error', variant: 'solid' | 'outline', icon: string, actionLeft: { label: string, callback: () => void }, actionRight: { label: string, callback: () => void } }[] = []
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const toasts: { id: string, title: string, message: string, type: 'default' | 's
     <slot />
     <div class="toast-container">
       <TransitionGroup name="toast">
-        <UIToast
+        <!-- <UIToast
           v-for="toast in toasts"
           :id="toast.id"
           :key="toast.id"
@@ -20,7 +20,7 @@ const toasts: { id: string, title: string, message: string, type: 'default' | 's
           :icon="toast.icon"
           :action-left="toast.actionLeft"
           :action-right="toast.actionRight"
-        />
+        /> -->
       </TransitionGroup>
     </div>
   </div>
