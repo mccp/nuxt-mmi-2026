@@ -2,7 +2,7 @@
 const config = useRuntimeConfig()
 
 const { data: recipes, error } = await useAsyncData('recipes', async () => {
-  const { data } = await $fetch<{ data: Recipe[] }>(`${config.public.apiUrl}/api/recipes`)
+  const { data } = await $fetch<ApiResponse<Recipe[]>>(`${config.public.apiUrl}/api/recipes`)
   return data
 })
 
