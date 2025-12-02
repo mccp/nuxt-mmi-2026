@@ -1,6 +1,13 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
 
+useHead({
+  title: 'Mes recettes | Accueil',
+  meta: [
+    { name: 'description', content: 'Page d\'accueil de mon site de recettes' }
+  ]
+})
+
 const [{ data: recipes, error }, { data: cuisines }] = await Promise.all([
   useAsyncData('recipes', async () => {
     const { data } = await $fetch<ApiResponse<Recipe[]>>(`${config.public.apiUrl}/api/recipes`)
