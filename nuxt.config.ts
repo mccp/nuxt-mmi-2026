@@ -1,14 +1,31 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+
   devtools: { enabled: true },
+
   css: ['~/styles/main.scss'],
+
   components: [
     { path: '~/components', pathPrefix: false, extensions: ['vue'] }
   ],
+
   typescript: {
     typeCheck: true
   },
+
+  runtimeConfig: {
+    public: {
+      apiUrl: ''
+    }
+  },
+
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/image',
+    '@nuxt/test-utils'
+  ],
+  
   vite: {
     css: {
       preprocessorOptions: {
@@ -21,10 +38,5 @@ export default defineNuxtConfig({
         }
       }
     }
-  },
-  modules: [
-    '@nuxt/eslint',
-    '@nuxt/image',
-    '@nuxt/test-utils'
-  ]
+  }
 })
