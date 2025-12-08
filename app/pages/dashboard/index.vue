@@ -1,7 +1,11 @@
 <script setup>
+import { jwtDecode } from 'jwt-decode'
+
 definePageMeta({
   middleware: ['auth']
 })
+
+const decodedToken = jwtDecode(useCookie('recipe_token').value)
 
 function onLogoutClick () {
   const cookie = useCookie('recipe_token')
@@ -26,6 +30,11 @@ await useAsyncData('my-recipes', () => {
 <template>
   <div class="p-dashboard">
     <h1>Dashboard</h1>
+    <p>{{ decodedToken }}</p>
+    <div class="l-container">
+      <RecipesList />
+    </div>
     <button @click="onLogoutClick">Déconnexion</button>
+    <AddRecipeForm />
   </div>
 </template>
