@@ -21,19 +21,27 @@ export default defineNuxtConfig({
     typeCheck: true
   },
 
+  sanity: {
+    projectId: 'rwem0xku',
+    dataset: 'production',
+    visualEditing: {
+      token: process.env.NUXT_SANITY_API_TOKEN, // required
+      studioUrl: process.env.NUXT_SANITY_STUDIO_URL, // required
+      stega: false
+    }
+  },
   runtimeConfig: {
     public: {
       apiUrl: ''
     }
   },
 
-  modules: [
-    '@nuxt/eslint',
-    '@nuxt/image',
-    '@nuxt/test-utils'
-  ],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/test-utils', '@nuxtjs/sanity'],
   
   vite: {
+    optimizeDeps: {
+      include: ['@sanity/visual-editing']
+    },
     css: {
       preprocessorOptions: {
         scss: {
