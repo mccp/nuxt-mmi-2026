@@ -21,17 +21,17 @@
     "eslint": "^9.39.1",
     "jwt-decode": "^4.0.0",
     "nuxt": "^4.2.1",
-    "react": "^19.2.1",
-    "react-compiler-runtime": "^1.0.0",
-    "react-dom": "^19.2.1",
-    "react-is": "^19.2.1",
-    "styled-components": "^6.1.19",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
     "@types/node": "^18.17.5",
+    "react": "^19.2.1",
+    "react-compiler-runtime": "^1.0.0",
+    "react-dom": "^19.2.1",
+    "react-is": "^19.2.1",
     "sass": "^1.94.2",
+    "styled-components": "^6.1.19",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.1.5"
   }
