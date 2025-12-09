@@ -35,23 +35,23 @@ export default defineNuxtConfig({
       apiUrl: ''
     }
   },
-
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/test-utils', '@nuxtjs/sanity'],
   
   vite: {
     optimizeDeps: {
-      include: ['@sanity/visual-editing']
+      include: ['react-compiler-runtime', 'react', 'react-dom']
     },
     css: {
       preprocessorOptions: {
         scss: {
           additionalData: `
-            @use "@/styles/foundations/functions" as *;
-            @use "@/styles/foundations/variables" as *;
-            @use "@/styles/foundations/mixins" as *;
+          @use "@/styles/foundations/functions" as *;
+          @use "@/styles/foundations/variables" as *;
+          @use "@/styles/foundations/mixins" as *;
           `
         }
       }
     }
-  }
+  
+  },
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/test-utils', '@nuxtjs/sanity']
 })
