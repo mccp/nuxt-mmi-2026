@@ -2,12 +2,14 @@
 <script setup lang="ts">
 import type { SanityDocument } from '@sanity/client'
   
-const POSTS_QUERY = groq`*[
+const BOOKS_QUERY = groq`*[
     _type == "book"
     && defined(slug.current)
-  ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`
+  ]|order(publishedAt desc)[0...12]{ slug, title, cover, body, author->{ name } }`
   
-const { data: books } = await useLazySanityQuery<SanityDocument[]>(POSTS_QUERY)
+const { data: books } = await useLazySanityQuery<SanityDocument[]>(BOOKS_QUERY)
+
+const { urlFor } = useSanityImage()
 </script>
   
 <template>
@@ -15,8 +17,16 @@ const { data: books } = await useLazySanityQuery<SanityDocument[]>(POSTS_QUERY)
     <h1 class="text-4xl font-bold mb-8">Books</h1>
     <ul class="flex flex-col gap-y-4">
       <li v-for="book in books" :key="book._id" class="hover:underline">
-        <nuxt-link :to="`/${book.slug.current}`">
-          <h2 class="text-xl font-semibold">{{ book.title }}</h2>
+        <nuxt-link :to="`/books/${book.slug.current}`">
+          <img
+            v-if="book.cover"
+            :src="urlFor(book.cover)?.width(550).height(310).url()"
+            :alt="book?.title"
+            class="aspect-video rounded-xl"
+            width="550"
+            height="310"
+          >
+          <h2 class="text-xl font-semibold">{{ book.title }} écrit par {{ book.author.name }}</h2>
           <p>{{ new Date(book.publishedAt).toLocaleDateString() }}</p>
         </nuxt-link>
       </li>
